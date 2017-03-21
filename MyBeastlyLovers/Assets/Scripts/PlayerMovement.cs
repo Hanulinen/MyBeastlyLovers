@@ -22,19 +22,24 @@ public class PlayerMovement : MonoBehaviour {
 
         Vector2 movement_vector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
+        HandleMovement(movement_vector);
+        
+	}
+
+
+    private void HandleMovement(Vector2 movement_vector)
+    {
         if (movement_vector != Vector2.zero)
         {
             anim.SetBool("iswalking", true);
             anim.SetFloat("input_x", movement_vector.x);
             anim.SetFloat("input_y", movement_vector.y);
-        } else {
+        }
+        else
+        {
             anim.SetBool("iswalking", false);
         }
-        rbody.MovePosition(rbody.position + movement_vector * Time.deltaTime * MovementSpeed);
-
-
-	}
-
-
+        rbody.velocity = new Vector2(movement_vector.x * MovementSpeed, movement_vector.y * MovementSpeed);
+    }
 
 }
