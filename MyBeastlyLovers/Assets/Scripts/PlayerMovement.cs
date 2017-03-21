@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 
-	void Update () {
+	void FixedUpdate () {
 
         Vector2 movement_vector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
