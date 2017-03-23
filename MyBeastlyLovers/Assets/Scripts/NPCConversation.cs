@@ -16,6 +16,10 @@ public class NPCConversation : MonoBehaviour {
     public int NPCType;
     //A random number that determines the dialogue spoken by the minor NPC;
     int rand;
+    //Lover-NPC's have a love level variable that determines their familiarity with the main character an thus their lines;
+    int lovelevel;
+    //Every NPC has a name that is used to get their own lines from the script file.
+    public string NPCName;
     //Button that plays the role of a textbox.
     Button TextBox;
     //Text in the button.
@@ -30,19 +34,20 @@ public class NPCConversation : MonoBehaviour {
         TextBox = GameObject.Find("TextBox").GetComponent<Button>();
         if (NPCType == 1)
         {
-            TextBox.onClick.AddListener(() => NextTextOne());
+            TextBox.onClick.AddListener(() => NextTextMinor());
         }
         else if(NPCType == 2)
         {
-            TextBox.onClick.AddListener(() => NextTextTwo());
+            TextBox.onClick.AddListener(() => NextTextMajor());
         }
         else
         {
-            TextBox.onClick.AddListener(() => NextTextThree());
+            TextBox.onClick.AddListener(() => NextTextLover());
         }
         myText = GameObject.Find("Text").GetComponent<Text>();
         TextBox.gameObject.SetActive(false);
         dialogues = GameObject.Find("Gameplay").GetComponent<DialogueLists>();
+        lovelevel = 0;
 	}
 	
 	// Update is called once per frame
@@ -52,20 +57,20 @@ public class NPCConversation : MonoBehaviour {
         {
             if (NPCType == 1)
             {
-                NextTextOne();
+                NextTextMinor();
 
             }
             else if (NPCType == 2)
             {
-                NextTextTwo();
+                NextTextMajor();
             }
             else
             {
-                NextTextThree();
+                NextTextLover();
             }
         }
         //Checks every frame if player is next to an npc and E is pressed.
-        if (Input.GetKeyDown(KeyCode.E)&&nextToNPC)
+        if (Input.GetKeyDown(KeyCode.E)&&nextToNPC&&!conversationPlaying)
         {
             Debug.Log("Conversation started");
             conversationPlaying = true;
@@ -76,7 +81,7 @@ public class NPCConversation : MonoBehaviour {
             {
                 //A random interer is created to take a random line from a minor NPC's dialogue list.
                 rand = Random.Range(0, 3);
-                myText.text = dialogues.example[rand];
+                myText.text = dialogues.GetLines(NPCName,rand,lovelevel);
 
             }
             else if (NPCType == 2)
@@ -109,21 +114,21 @@ public class NPCConversation : MonoBehaviour {
         
     }
     //Is executed when button (textbox) is pressed.
-    void NextTextOne()
+    void NextTextMinor()
     {
         //Minor NPC's only speak one line of dialogue every time you speak to them, therefore the textbox closes after one line.
         TextBox.gameObject.SetActive(false);
         //Conversation is over.
         conversationPlaying = false;
     }
-    void NextTextTwo()
+    void NextTextMajor()
     {
         myText.text = "This is text number " + i;
         i++;
         //Conversation is over.
         conversationPlaying = false;
     }
-    void NextTextThree()
+    void NextTextLover()
     {
         myText.text = "This is text number " + i;
         i++;

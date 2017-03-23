@@ -20,4 +20,15 @@ public class DialogueLists : MonoBehaviour
     {
 
     }
+    public string GetLines(string name, int no, int lovelevel)
+    {
+        if(name == "example")
+        {
+            return example[no];
+        }
+        else
+        {
+            return "This is exampleeee"; 
+        }
+    }
 }
