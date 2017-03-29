@@ -468,8 +468,13 @@ PlayerSettings:
   XboxOneAllowedProductIds: []
   XboxOnePersistentLocalStorageSize: 0
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
-  cloudProjectId: 
-  projectName: 
-  organizationId: 
+  cloudServicesEnabled:
+    Build: 0
+    Collab: 1
+    ErrorHub: 0
+    Hub: 0
+    UNet: 1
+  cloudProjectId: 1a68a103-3360-4df8-8aa2-0176ef4ab900
+  projectName: MyBeastlyLovers (1)
+  organizationId: soyhan15-gmail-com
   cloudEnabled: 0

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4264165706660150}
   - component: {fileID: 212861010809378484}
   - component: {fileID: 61989407606051404}
+  - component: {fileID: 61390817412467160}
   - component: {fileID: 114861148440753092}
   m_Layer: 0
   m_Name: NPC
@@ -35,13 +36,27 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1145966334543140}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.84, y: -1.06, z: 0}
-  m_LocalScale: {x: 2.6884534, y: 2.6884534, z: 2.6884534}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.066686, y: -0.73502386, z: 99.99121}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61390817412467160
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1145966334543140}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.0031368732, y: -0.00000011920929}
+  serializedVersion: 2
+  m_Size: {x: 0.30863142, y: 0.3998102}
 --- !u!61 &61989407606051404
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -53,9 +68,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.012547493, y: 0.0031368732}
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.7258558, y: 0.7070341}
 --- !u!114 &114861148440753092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,7 +82,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07cd005e55419c64899d2de0852baf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPCType: 1
+  NPCType: 3
+  NPCName: Yola
 --- !u!212 &212861010809378484
 SpriteRenderer:
   m_ObjectHideFlags: 1

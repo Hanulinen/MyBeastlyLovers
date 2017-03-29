@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+    public PlayerInventory inventory;
 
     [SerializeField]
     int MovementSpeed;
-
 
     Rigidbody2D rbody;
     Animator anim;
@@ -41,5 +41,15 @@ public class PlayerMovement : MonoBehaviour {
         }
         rbody.velocity = new Vector2(movement_vector.x * MovementSpeed, movement_vector.y * MovementSpeed);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Item")
+        {
+            inventory.AddItem(other.GetComponent<Items>());
+        }
+
+    }
+
 
 }
